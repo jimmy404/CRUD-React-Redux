@@ -27,3 +27,6 @@ debug.log
 
 .log*
 debug.log*
+
+db.json
+db.json*
