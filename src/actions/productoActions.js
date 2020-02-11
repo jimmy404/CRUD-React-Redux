@@ -7,12 +7,12 @@ import clienteAxios from '../config/axios';
 
 //Crear nuevos productos
 export function crearNuevoProductoAction(producto) {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch( agregarProducto());
 
         try {
             //insertar en la API
-            clienteAxios.post('/productos', producto)
+            await clienteAxios.post('/productos', producto)
 
             //todo sale ok, actualiza state
             dispatch(agregarProductoExito(producto))
