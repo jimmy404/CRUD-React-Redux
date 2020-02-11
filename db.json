@@ -1,16 +1,6 @@
 {
   "productos": [
     {
-      "nombre": "123",
-      "precio": 123,
-      "id": 6
-    },
-    {
-      "nombre": "asdasd",
-      "precio": 123,
-      "id": 7
-    },
-    {
       "nombre": "asdasd",
       "precio": 2,
       "id": 8
