@@ -3,6 +3,7 @@ import {
     AGREGAR_PRODUCTO_EXITO,
     AGREGAR_PRODUCTO_ERROR
 } from '../types';
+import clienteAxios from '../config/axios';
 
 //Crear nuevos productos
 export function crearNuevoProductoAction(producto) {
