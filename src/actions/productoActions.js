@@ -11,8 +11,14 @@ export function crearNuevoProductoAction(producto) {
         dispatch( agregarProducto());
 
         try {
+            //insertar en la API
+            clienteAxios.post('/productos', producto)
+
+            //todo sale ok, actualiza state
             dispatch(agregarProductoExito(producto))
         } catch (error) {
+            console.log(error);
+            //si hay un error cambiar el state
             dispatch(agregarProductoError(true))
         }
     }
