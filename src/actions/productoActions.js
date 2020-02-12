@@ -146,10 +146,10 @@ const obtenerProductoEditarAction = producto => ({
 //editar registro en la api y state
 export function editarProductoAction(producto){
     return async (dispatch) => {
-        dispatch(EditarProducto(producto))
+        dispatch(EditarProducto(producto));
 
         try {
-            const resultado = await clienteAxios.put(`/productor/${producto.id}`, producto);
+            const resultado = await clienteAxios.put(`/productos/${producto.id}`, producto);
             console.log(resultado);
         } catch (error) {
             
