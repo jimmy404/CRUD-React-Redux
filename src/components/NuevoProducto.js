@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 //Action de Redux
 import { crearNuevoProductoAction } from '../actions/productoActions';
-import {mostrarAlerta} from '../actions/alertaActions';
+import {mostrarAlerta, ocultarAlertaAction} from '../actions/alertaActions';
 
 const NuevoProducto = ({history}) => {
 
@@ -18,6 +18,7 @@ const NuevoProducto = ({history}) => {
     //acceder al state del error
     const cargando = useSelector(state => state.productos.loading);
     const error = useSelector(state => state.productos.error);
+    const alerta = useSelector(state => state.alerta.alerta);
 
     //mandar a llamar el action de productoAction
     const agregarProducto = producto => dispatch(crearNuevoProductoAction(producto));
@@ -39,7 +40,7 @@ const NuevoProducto = ({history}) => {
         }
 
         //revisar que no hay errores
-
+        dispatch(ocultarAlertaAction());
         //crear el nuevo producto
         agregarProducto({
             nombre,
@@ -59,6 +60,7 @@ const NuevoProducto = ({history}) => {
                         <h2 className="text-center mb-4 font-weight-bold">
                             Agregar Producto
                         </h2>
+                        {alerta ? <p className={alerta.classes}>{alerta.msg}</p> : null}
                         <form
                             onSubmit={submitNuevoProducto}
                         >
